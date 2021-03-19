@@ -5,13 +5,16 @@
     lowestHighNumber=20
     playerGuesses=0
     correctNumb
-    round=gameLoop()
+    round
+    
     
     win=0
     rounds
     constructor(playerName){
         this.playerName=playerName
         this.correctNumb=this.correctNumber()
+        this.round=this.gameLoop()
+
         
         
     }
@@ -32,7 +35,7 @@
     gameLoop(){
         
         let round = new Round(this.playerName)
-        return round
+        return round 
         
     }
 
@@ -106,4 +109,4 @@ function sleep(ms) {
   let test = new GameState("Olle")
   let test2 = new Round
   
-  console.log(test.round.playerName)
+  console.log(test.round.timer())
