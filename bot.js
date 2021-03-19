@@ -1,9 +1,9 @@
-class Bot {
+ class Bot {
     constructor(name){
     this.name=name
     }
     makeGuessTime(guess){
-       return setTimeout(guess,  Math.floor(Math.random() * 8000) + 2000)
+       return setTimeout(guess,  Math.floor(Math.random() * 4500) + 2000)
     }
 }
 
@@ -32,9 +32,44 @@ class DumbBot extends Bot{
     
 
 
-}
+} 
 /* let test = new DumbBot()
 test.guess() */
-let test2 = new SmartBot()
-test2.guess()
+ let test2 = new SmartBot()
+test2.guess() 
 
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+  
+  async function sample() {
+    console.log('a');
+    console.log('waiting...')
+    let delayres = await sleep(3000);
+    console.log('b');
+  }
+  
+
+
+  //Game State
+
+  class GameState{
+
+    playerName=this.player
+    highestLowNumber=this.highestLowNumber
+    lowestHighNumber=this.lowestHighNumber
+
+
+    
+    constructor() {
+        this.player=player
+        this.win = false;
+        this.highestLowNumber = 1;
+        this.lowestHighNumber = 20;
+        this.highscore = {};
+        this.playerGuesses = 0; 
+    }
+
+  }
