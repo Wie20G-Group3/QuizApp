@@ -1,10 +1,48 @@
 //En klass om har hand om data för hela omgången
+window.addEventListener("load", init)
+
+function init() {
+    startGame()
+}
+
+function startGame(){
+    let bot1= new SmartBot
+    let bot2 = new DumbBot
+    let player = document.getElementById("playerName").value
+    let guess = document.getElementById("playerInput").value
+    let game =new GameState(player)
+    
+        
+        alert("Din tur "+player)
+        game.round.timer()
+        
+        game.round.guessCheck(game.round.getGuess(), game.correctNumb)
+        game.round.delay()
+       /*  alert("Din tur "+ bot1.name)
+        game.round.timer()
+        game.round.guessCheck(bot1.guess(), game.correctNumb) */
+
+        
+    
+    
+   /*  alert("player bot1")
+    game.round.timer()
+    bot1.guess()
+    game.round.getGuess()
+    game.round.guessCheck()
+    game.round.delay() */
+    console.log(game.correctNumb)
+    
+}
+
+
+
  class GameState{
     playerName=this.playerName
     highestLowNumber=1
     lowestHighNumber=20
     playerGuesses=0
-    correctNumb
+    correctNumb=this.correctNumb
     round
     
     
@@ -26,6 +64,7 @@
         return correctNr
     }
     
+
     win(){
         if (win=1){
             alert("du har vunnit")
@@ -49,17 +88,23 @@ class Round{
  constructor (playerName) {
      this.playerName=playerName
  }
+    turn(name){
+    alert("Din tur " + name)
+    timer()
+       
+    }
 
     timer(){
         let timeleft = 10;
         let answerTimer = setInterval(function(){
-            if(timeleft <= 0){
+            if(timeleft <= 1){
         
                 clearInterval(answerTimer);
+                document.getElementById("timer").innerText="Tiden är ute"
 
             } else {
 
-                console.log(timeleft)
+                document.getElementById("timer").innerText=timeleft
         
             }
         
@@ -73,11 +118,12 @@ class Round{
     return document.getElementById("playerInput").value 
     }
 
-    guessCheck(guess){
-        if (this.guess === super.correctNumber){
+   async guessCheck(guess, correctNr){
+        await sleep(10000)
+        if (this.guess === correctNr){
             alert("Gattis"+this.playerName+ "du har Vunnit")
         }else{
-            if(guess>super.correctNumber)
+            if(guess>correctNr)
             {
                 return document.getElementById("playerGuess").innerText="Du gissade för högt"
 
@@ -107,6 +153,6 @@ function sleep(ms) {
   }
 
   let test = new GameState("Olle")
-  let test2 = new Round
+  let test3 = new Round
   
-  console.log(test.round.timer())
+  

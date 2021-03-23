@@ -1,3 +1,12 @@
+class Player{
+    constructor (){
+
+
+        
+    }
+} 
+ 
+ 
  class Bot {
     constructor(name){
     this.name=name
@@ -36,7 +45,7 @@ class DumbBot extends Bot{
 /* let test = new DumbBot()
 test.guess() */
  let test2 = new SmartBot()
-test2.guess() 
+
 
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -53,23 +62,3 @@ async function sleep(ms) {
   
 
 
-  //Game State
-
-  class GameState{
-
-    playerName=this.player
-    highestLowNumber=this.highestLowNumber
-    lowestHighNumber=this.lowestHighNumber
-
-
-    
-    constructor() {
-        this.player=player
-        this.win = false;
-        this.highestLowNumber = 1;
-        this.lowestHighNumber = 20;
-        this.highscore = {};
-        this.playerGuesses = 0; 
-    }
-
-  }
