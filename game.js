@@ -28,7 +28,9 @@ function startGame(){
     playerGuesses=0
     correctNumb=this.correctNumb
     round
-    winner 
+    winner
+    dumbBot = new DumbBot
+    smartBot = new SmartBot 
     
     
     
@@ -53,40 +55,90 @@ function startGame(){
 
    async gameLoop(){
         for (let index = 0; index < this.players.length; index++) {
-            
-            console.log("gameloop")
+           
             this.timer()
             await this.pause()
             
              if (this.playerName!==this.players[index])
             {   
-                console.log(dumbBot.guess())
-                console.log(this.players[index].guess)
-                this.players[index].guess
-                this.getGuess()
+                if (this.players[index]=="smartBot") {
+                    
+                    document.getElementById("smartBotOutput").innerHTML=this.smartBot.guess()
+                    let playerGuess=this.getGuess("smartBotOutput")
+                    let vinst = this.guessCheck(playerGuess, this.correctNumb)
+                    if (vinst==1) {
+                        console.log("i win" +this.players[index])
+                        this.winner=this.players[index]
+                        winner = this.winner
+                        stats()
+                        break
+                        /* alert("Du har vunnit " + this.players[index]) */
+                    }
+
+                }else{
+                    console.log(this.dumbBot.guess())
+                    document.getElementById("dumbBotOutput").innerText=this.dumbBot.guess()
+                    let playerGuess = this.getGuess("dumbBotOutput")
+
+                    let vinst = this.guessCheck(playerGuess, this.correctNumb)
+                    if (vinst==1) {
+                        console.log("i win" +this.players[index])
+                        this.winner=this.players[index]
+                        winner = this.winner
+                        stats()
+                        break
+                        /* alert("Du har vunnit " + this.players[index]) */
+                    }
+                }
+                
             }else{
-                this.getGuess()
-            } 
-            let playerGuess = this.getGuess()
+                this.getGuess("playerInput")
+                let playerGuess=this.getGuess("plyerInput")
+                let vinst = this.guessCheck(playerGuess, this.correctNumb)
+                if (vinst==1) {
+                    console.log("i win" +this.players[index])
+                    this.winner=this.players[index]
+                    winner = this.winner
+                    stats()
+                    break
+                    
+                }
+            
+            /* let playerGuess = this.getGuess("playerInput")
             console.log(playerGuess)
             let vinst = this.guessCheck(playerGuess, this.correctNumb)
             console.log(vinst)
             if (vinst==1) {
-                console.log("i win" +this.players[index])
+                console.log("i win" +this.players[index]) */
                 this.winner=this.players[index]
+                let winner = this.winner
+                this.stats()
                 break
                 /* alert("Du har vunnit " + this.players[index]) */
             }
             
         }
-        
+        await sleep(3000)
         console.log("after last sleep")
+        this.gameLoop()
     /* this.gameLoop(); */
     }
 
     win(){
         if (win=1){
             alert("du har vunnit")
+            stats()
+        }
+    }
+
+    stats() {
+        winners = JSON.parse(localStorage.getItem("winners"))
+        if (winners !=null) {
+            storage.setItem(winners, winner);
+        }else{
+            winners.push(winner)
+            JSON.stringify(winners)
+            storage.setItem(winners, winners);
         }
     }
 
@@ -114,8 +166,8 @@ function startGame(){
         }, 1000);
         }
         
-        getGuess(){
-        return document.getElementById("playerInput").value 
+        getGuess(div){
+        return document.getElementById(div).value 
         }
         
         guessCheck(guess, correctNr){
