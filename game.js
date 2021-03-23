@@ -6,7 +6,8 @@
     playerGuesses=0
     correctNumb
     round
-    
+
+    winner
     
     win=0
     rounds
@@ -18,6 +19,7 @@
         
         
     }
+
     correctNumber(){
 
         let nr = Math.random() * (20 - 1) + 1
@@ -39,7 +41,17 @@
         
     }
 
+}
 
+function stats() {
+    winners = JSON.parse(localStorage.getItem("winners"))
+    if (winners !=null) {
+        storage.setItem(winners, winner);
+    }else{
+        winners.push(winner)
+        JSON.stringify(winners)
+        storage.setItem(winners, winners);
+    }
 }
 
 
