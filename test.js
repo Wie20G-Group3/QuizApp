@@ -1,10 +1,10 @@
-window.addEventListener("load",initsite)
+/* window.addEventListener("load",initsite)
 document.getElementById("hide").addEventListener("click", hideBtn)
 
 
 
-let playerGuess = document.getElementById("player")
-let botGuess = document.getElementById("bot")
+let dumbBotOutput= document.getElementById("dumbBotOutput")
+let smartBotOutput = document.getElementById("smartBotOutput")
 
 function initsite(){
     playerGuess.innerHTML ="3"
@@ -17,14 +17,14 @@ function initsite(){
 function hideBtn(){
     
     
-    if (playerGuess.style.display === "none") {
-      playerGuess.style.display = "block";
-      botGuess.style.display = "block";
+    if (dumbBotOutput.style.display === "none") {
+      dumbBotOutput.style.display = "block";
+      smartBotOutput.style.display = "block";
     } else {
-      playerGuess.style.display = "none";
-      botGuess.style.display = "none";
+      dumbBotOutput.style.display = "none";
+      smartBotOutput.style.display = "none";
     }
 }
-
+ */
 
 

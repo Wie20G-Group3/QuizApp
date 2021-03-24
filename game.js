@@ -191,13 +191,25 @@ function getName(){
 
     let playername = localStorage.getItem("playername")
     
-    let pName = document.getElementById("playerName")
-    pName.innerText = playername
+    let playerName = document.getElementById("playerName")
+    playerName.innerText = playername
 }
 
 
 
-
+function hideBtn(){
+    
+    let dumbBotOutput= document.getElementById("dumbBotOutput")
+    let smartBotOutput = document.getElementById("smartBotOutput")
+    
+    if (dumbBotOutput.style.display === "none") {
+      dumbBotOutput.style.display = "block";
+      smartBotOutput.style.display = "block";
+    } else {
+      dumbBotOutput.style.display = "none";
+      smartBotOutput.style.display = "none";
+    }
+}
 
 
 
