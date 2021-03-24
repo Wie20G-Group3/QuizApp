@@ -1,12 +1,12 @@
 function myInputNumber () {
     let myNumber;
     //hämtar värdet från input - OBS! "id" ska korrigeras!
-    myNumber = document.getElementById("number").value;
+    myNumber = document.getElementById("inputNumber").value;
 
     //kollar som värdet i input är ok
     if (isNaN(myNumber) || myNumber < 1 || myNumber > 20) {
         console.log("Input not valid");
-        document.getElementById("numberOutput").innerHTML = "Error - välj en siffra mellan 1 och 20!"
+        document.getElementById("numberOutput").innerHTML = "Error - välj 1 - 20!"
        
     } else {
         console.log("input OK")
