@@ -2,16 +2,18 @@ window.addEventListener("load", init)
 
 function init() {
     getName()
+    startGame()
 }
 //starts the game and gets values, values not used for now
 function startGame(){   
-    let name="Fredrik"
+    
     /* let guess = document.getElementById("playerInput").value */
+    let name = localStorage.getItem("win")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
     
         
-    console.log(game.players)
+    console.log(game.playerName)
     console.log("Correct number= " +game.correctNumb)
     
 }
@@ -19,12 +21,12 @@ function startGame(){
 
 
  class GameState{
-    players=["dumbBot", "smartBot"]
+    players=["Dumb", "Smart"]
     playerName=""
     highestLowNumber=1
     lowestHighNumber=20
     playerGuesses=0
-
+    currentPlayer=""
     correctNumb=this.correctNumb
     winner=null
     dumbBot = new DumbBot
@@ -65,7 +67,8 @@ function startGame(){
             
              if (this.playerName!==this.players[index])
             {   
-                if (this.players[index]=="smartBot") {
+                if (this.players[index]=="Smart") {
+                    this.currentPlayer=this.players[index]
                     let playerGuess=this.smartBot.guess(this.highestLowNumber, this.lowestHighNumber)
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
                     
@@ -74,6 +77,7 @@ function startGame(){
                  
 
                 }else{
+                    this.currentPlayer=this.players[index]
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
@@ -82,7 +86,7 @@ function startGame(){
                 }
                 
             }else{
-                
+                this.currentPlayer=this.players[index]
                 let playerGuess=this.getGuess("input-number")
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
@@ -173,10 +177,10 @@ function startGame(){
             }else{
                 if(guess>correctNr)
                 {
-                    return document.getElementById("playerGuess").innerText="Du gissade för högt"
+                    return document.getElementById("playerGuess").innerText=(this.currentPlayer + " gissade "+ this.playerGuess +  " som är för högt")
         
                 }else{
-                    return document.getElementById("playerGuess").innerText="Du gissade för lågt"
+                    return document.getElementById("playerGuess").innerText=(this.currentPlayer + " gissade "+ this.playerGuess +  " som är för lågt")
         
                 }
             }
