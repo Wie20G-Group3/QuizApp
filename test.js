@@ -1,4 +1,4 @@
-window.addEventListener("load",initsite)
+/* window.addEventListener("load",initsite)
 document.getElementById("hide").addEventListener("click", hideBtn)
 
 
@@ -25,6 +25,6 @@ function hideBtn(){
       smartBotOutput.style.display = "none";
     }
 }
-
+ */
 
 
