@@ -1,6 +1,7 @@
+window.addEventListener("load", init)
 
 function init() {
-    
+    getName()
 }
 //starts the game and gets values, values not used for now
 function startGame(){   
@@ -181,6 +182,15 @@ function startGame(){
             }
         }
 }
+
+function getName(){
+
+    let playername = localStorage.getItem("playername")
+    
+    let pName = document.getElementById("pName")
+    pName.innerText = playername
+}
+
 
 
 
