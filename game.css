@@ -176,6 +176,7 @@ main {
   width: 10rem;
   padding-left: 0.5rem;
   outline: none;
+  margin-bottom: 2rem;
 }
 
 .input-animation {
@@ -244,4 +245,22 @@ main {
   .main-game-container{
     margin-bottom: 1rem;
   }
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+input:invalid+span:after{
+  content: 'Mellan 1-20!';
+  padding-left: 5px;
+}
+
+input:valid+span:after {
+  content: 'Bra val!';
+  padding-left: 5px;
+}
+
+.inputNumber {
+  text-align: center;
 }

@@ -1,0 +1,13 @@
+div {
+    margin-bottom: 10px;
+}
+
+input:invalid+span:after {
+    content: 'Välj siffra mellan 1-20!';
+    padding-left: 5px;
+}
+
+input:valid+span:after {
+    content: 'Bra val!';
+    padding-left: 5px;
+}

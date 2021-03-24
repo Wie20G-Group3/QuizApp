@@ -1,6 +1,7 @@
+window.addEventListener("load", init)
 
 function init() {
-    
+    getName()
 }
 //starts the game and gets values, values not used for now
 function startGame(){   
@@ -182,6 +183,15 @@ function startGame(){
         }
 }
 
+function getName(){
+
+    let playername = localStorage.getItem("playername")
+    
+    let pName = document.getElementById("pName")
+    pName.innerText = playername
+}
+
+
 
 
 
@@ -192,6 +202,24 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+
+function myInputNumber () {
+    let myNumber;
+    //hämtar värdet från input
+    myNumber = document.getElementById("inputNumber").value;
+
+    //kollar som värdet i input är ok
+    if (isNaN(myNumber) || myNumber < 1 || myNumber > 20) {
+        console.log("Input not valid");
+        document.getElementById("numberOutput").innerHTML = "Error - välj 1 - 20!"
+       
+    } else {
+        console.log("input OK")
+        //skriver ut valt nummer - OBS! "id" ska korrigeras!
+        document.getElementById("numberOutput").innerHTML = "Du valde nummer: " + myNumber;
+    }
+
+}
   
   
   
