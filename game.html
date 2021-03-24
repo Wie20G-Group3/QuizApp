@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="game.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-
+    <script src="game.js"></script>
 
 </head>
 
@@ -52,7 +52,7 @@
                 <div class="player">
 
                     <i class="fas fa-user-alt  player-image-animation player-0"></i>
-                    <p class="name">Player</p>
+                    <p id="pName" class="name">Player</p>
                 </div>
                 <div class="player">
                     <i class="fas fa-robot player-image-animation player-1" style="color: greenyellow;"></i>
@@ -66,10 +66,11 @@
             </div>
             <div class="input-box">
                 <label for="Write numbers"></label>
-                <input type="text" name="write numbers" class="input-animation" id="input-number"
+                <input autofocus type="text" name="write numbers" class="input-animation" id="input-number"
                     placeholder="Write a number between 1 to 20">
+                    
                 <div class="buttons">
-
+                    <button id="hide">Hide/Show guesses</button>
                 </div>
             </div>
         </div>
