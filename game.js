@@ -6,9 +6,9 @@ function init() {
 //starts the game and gets values, values not used for now
 function startGame(){   
     let name="Fredrik"
-    let player = document.getElementById("playerName").value
-    let guess = document.getElementById("playerInput").value
+    /* let guess = document.getElementById("playerInput").value */
     let game = new GameState(name)
+    document.getElementById("playerName").innerText=game.playerName
     
         
     console.log(game.players)
@@ -83,7 +83,8 @@ function startGame(){
                 
             }else{
                 
-                let playerGuess=this.getGuess("playerInput")
+                let playerGuess=this.getGuess("input-number")
+                document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
                 this.numberOfGuesse++
             }
@@ -125,15 +126,14 @@ function startGame(){
     //Saves winner to local storage
     stats() {
         let winners=[]
-        winners = JSON.parse(localStorage.getItem("winners"))
-        if (winners !=null) {
-            storage.setItem(winners, this.winner);
+        winners = localStorage.getItem("win")
+        if (winners == null) {
+            localStorage.setItem("win", this.winner);
         }else{
-            
             winners=[]
             winners.push(this.winner)
             JSON.stringify(winners)
-            localStorage.setItem(winners, winners);
+            localStorage.setItem("win", winners);
         }
     }
 
