@@ -232,7 +232,7 @@ main {
   }
 
   .player-image-animation {
-    font-size: 4rem;
+    font-size: 2rem;
     padding: 1rem 2rem;
 
   }
@@ -245,6 +245,8 @@ main {
   .main-game-container{
     margin-bottom: 1rem;
   }
+
+  .timer-answer-div {margin-top: 6rem;}
 }
 
 div {
@@ -263,4 +265,9 @@ input:valid+span:after {
 
 .inputNumber {
   text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .player-image-animation {font-size: 4rem;}
+ 
 }
