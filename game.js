@@ -23,19 +23,23 @@ function startGame(){
     highestLowNumber=1
     lowestHighNumber=20
     playerGuesses=0
+
     correctNumb=this.correctNumb
     winner=null
     dumbBot = new DumbBot
     smartBot = new SmartBot
     numberOfGuesse=0
     playerGuess=null
+
     win=0
     
     constructor(playerName){
         this.playerName=playerName
         this.correctNumb=this.correctNumber()
     }
+
     //Calculates the correct number and saves it to correctNumb
+
     correctNumber(){
         console.log("number")
         let nr = Math.random() * (20 - 1) + 1
@@ -131,11 +135,13 @@ function startGame(){
             localStorage.setItem(winners, winners);
         }
     }
+
     //Just a pause, stops all code for 7 seconds
     async pause(){
         await sleep(7000)
     }
     //The countdown that shows on screen
+
     timer(){
         let timeleft = 5;
         let answerTimer = setInterval(function(){

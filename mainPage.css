@@ -1,0 +1,196 @@
+* {
+<<<<<<< HEAD
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+  }
+  
+  html {
+    height: 100%;
+}
+  
+  body {
+    background-image: url(bg2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 180px;
+    }
+  
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: hsl(186, 100%, 55%);
+  }
+  
+  .flex {
+    display: flex;
+  }
+  .row {
+    flex-direction: row;
+  }
+  .column {
+    flex-direction: column;
+  }
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .logo-small {
+    width: 15rem;
+    filter: brightness(1.15);
+    animation: scale 1s ease-out;
+  }
+  
+  .logo {
+    height: 10%;
+    width: 10%;
+    filter: brightness(1.15) hue-rotate(0deg);
+    padding: 1rem 0 0 0;
+    animation: scale 1.5s ease;
+  }
+
+
+
+  .form-style {
+    max-width: 300px;
+    margin: 70px auto;
+    
+}
+
+.form-style form {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 14px -6px;
+    border: 1px solid #f2f4f9;
+    border-radius: 5px;
+    padding: 30px;
+    min-width: 350px;
+}
+
+.form-style .form-group input {
+    border: 1px solid #e0e3eb;
+    height: 45px;
+    color: #18214d;
+    font-size: 14px;
+}
+
+.form-style .form-group input:focus {
+    box-shadow: none;
+}
+
+.form-style a:hover {
+    text-decoration: none;
+}
+
+.form-style span {
+    text-align: center;
+    display: block;
+    font-size: 22px;
+    margin-bottom: 15px;
+    margin-top: -5px;
+    font-weight: 600;
+}
+
+.form-style .text-right {
+    margin-top: -5px;
+    font-weight: 600;
+}
+
+.form-style button {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+=======
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Arimo';
+}
+
+body {
+    margin: 0px;
+}
+
+main {
+    justify-content: center;
+
+}
+
+header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0; 
+    right: 0;
+    height: 85px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+.header {
+    flex: 1 0 0px;
+}
+
+#techStoreLogo {
+    font-size: 20px;
+    text-decoration: none;
+    color: #FFFFFF;
+} 
+
+.authentificationBox {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+.mainBox {
+    display: flex;
+    padding-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: right;
+    flex-direction: column;
+    
+    
+}
+.loginBox {
+    display: flex;
+    text-align: center;
+    flex-direction: column;   
+    margin-left: 65%;
+}
+
+
+.createAccount {
+display: flex;
+text-align: center;
+flex-direction: column;   
+margin-left: 65%;
+
+>>>>>>> 6ad01c36be016ab4c17ed88785379bc5c10c48ba
+}

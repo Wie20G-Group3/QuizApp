@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to Quiz App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <nav class="navbar ">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1"> <img src="logo.png" alt="" class="logo"> QuizApp </span>
+        </div>
+      </nav>
+      <div class="form-style">
+        <form>
+          <span>Enter Your Name</span>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" autofocus id="nameField">
+          </div>
+
+          <button type="button" class="btn btn-dark" id="startBtn">Start the Game</button>
+<div class="container">
+  <div class="btn-group" role="group" aria-label="Third group">
+    <button type="button" class="btn btn-info btn-group-lg"><i class="fas fa-trophy"></i> Highscores</button>
+
+  </div>
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="button" class="btn btn-danger btn-group-lg" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="fas fa-info-circle"></i> Regler</button>
+    
+
+  </div>
+</div>
+
+        </div>
+        </form>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Regler</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>
+                  Välkommen till vårt QUIZ. I detta QUIZ tävlar du mot en eller flera deltagare. En slumpmässig siffra tas fram som det korrekta svaret, men är dolt tills rätt svar angetts. Varje deltagare ska välja och ange en siffra mellan 1-20, i turordning enligt nedan. Varje spelomgång registreras och statistiken finns sparat deltagarens “Mina sidor”.   
+
+                </h6>
+
+ 
+<ul>
+  <li>
+    Spelledaren samlar ihop antalet deltagare och anger spelordningen. 
+
+  </li>
+  <li>
+    Spelledare ställer frågan “vilket nummer har du valt?” och siffran skrivs in på angiven plats i spelfältet.  
+
+  </li>
+  <li>Endast siffror kan användas. Bokstäver och andra tecken/symboler kan INTE användas.  
+  </li>
+  <li>Deltagare 1 i spelordningen svarar först med en siffra.  
+  </li>
+  <li>Är siffran “RÄTT” är tävlingsrundan över och deltagare 1 har vunnit. 
+  </li>
+  <li>Är siffran “FEL”, kontrollerar Spelledaren om svaret är högre eller lägre än svaret. 
+  </li>
+  <li>Är svaret “högre”  meddelar Spelledaren att “Ditt svar är för HÖGT!” 
+  </li>
+  <li>Är svaret “lägre” meddelar Spelledaren att “Ditt svar är för LÅGT!” 
+  </li>
+<li>Turen går nu vidare till nästa deltagare som får svara och svaret kontrolleras enligt punkterna 4a och 4b. 
+</li>
+<li>Om ingen av deltagarna svarat rätt går frågan sedan tillbaka till Deltagare 1, som fortsätter enligt punkt 4. 
+</li>
+</ul>
+
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>

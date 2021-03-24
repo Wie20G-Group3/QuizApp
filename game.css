@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto, sans-serif;
+    font-weight: 400;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0 auto ;
+    background-image: linear-gradient(25deg, #e24938, #c9726f, #a091a8, #39ade3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: flip 2s linear;
+    transition: all 1s linear;
+  }
+
+
+main {
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+
+  }
+
+
+
+.timer-answer-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+
+}
+
+.timer {
+  font-size: 1.3rem;
+  animation: fade 1s ease;
+  margin: 1rem;
+
+}
+
+.answer {
+  font-size: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  color: hsl(186, 100%, 57%);
+  text-shadow: 1px 1px black;
+  color: hsl(186, 100%, 55%);
+  text-shadow: 1px 1px black;
+}
+
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.box {
+  height: 3rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 0 0;
+  margin-bottom: 0.5rem;
+}
+
+.bubble {
+  justify-content: center;
+  padding-top: 1rem;
+  display: inline-block;
+  margin: 0rem 4.5rem;
+  animation: fade 0.5s;
+  transition: all 0.5s; 
+  border-radius: 50%;
+}
+
+
+.p-bubble {
+  justify-content: center;
+  display: flex;
+  padding-top: 0.4rem;
+  color: #00565f;
+}
+
+
+.speech-bubble {
+  position: relative;
+  background: #ffffff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  right: -15px;
+  bottom: 15px;
+  width: 3rem;
+  height: 2rem;
+}
+
+.speech-bubble:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #ffffff;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -12px;
+  margin-bottom: -12px;
+  content: "";
+  bottom: 0;
+  left: 50%;
+
+}
+
+
+.main-game-container {
+  padding: 0 0 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+
+
+}
+
+.player {
+  width: 12rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+
+.player-image-animation {
+  animation: flip 2s linear;
+  transition: all 1s linear;
+}
+
+.name {
+  padding-top: 1rem;
+}
+
+
+.input-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+#input-number {
+  height: 3rem;
+  width: 10rem;
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+.input-animation {
+  box-shadow: 0px 0px 10px 5px rgb(240, 50, 113);
+  transition: all 5s;
+}
+
+.number-nofocus {
+  outline: none;
+  outline-width: 0rem;
+  outline-style: none;
+  box-shadow: 0px 0px 5px 1px #ffffff;
+}
+
+
+.buttons {
+  margin: 2rem 2rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+.confirm{
+  padding: 1.5rem;
+
+}
+
+
+
+
+
+
+
+.form-style {
+  max-width: 600px;
+  margin: 70px auto;
+  
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  .bubble {
+    margin: 0rem 2.5rem;
+  }
+  
+  .bubblebox {
+    margin-bottom: 2rem;
+  }
+
+  .player-image-animation {
+    font-size: 4rem;
+    padding: 1rem 2rem;
+
+  }
+  .player{
+    width: 8rem;
+
+  }
+
+
+  .main-game-container{
+    margin-bottom: 1rem;
+  }
+}
