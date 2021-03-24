@@ -187,8 +187,8 @@ function getName(){
 
     let playername = localStorage.getItem("playername")
     
-    let pName = document.getElementById("pName")
-    pName.innerText = playername
+    let playerName = document.getElementById("playerName")
+    playerName.innerText = playername
 }
 
 
