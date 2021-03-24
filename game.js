@@ -1,5 +1,5 @@
 window.addEventListener("load", init)
-document.getElementById("show").addEventListener("click", hideBtn)
+document.getElementById("hide").addEventListener("click", hideBtn)
 
 function init() {
     getName()
