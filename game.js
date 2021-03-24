@@ -193,7 +193,19 @@ function getName(){
 
 
 
-
+function hideBtn(){
+    
+    let dumbBotOutput= document.getElementById("dumbBotOutput")
+    let smartBotOutput = document.getElementById("smartBotOutput")
+    
+    if (dumbBotOutput.style.display === "none") {
+      dumbBotOutput.style.display = "block";
+      smartBotOutput.style.display = "block";
+    } else {
+      dumbBotOutput.style.display = "none";
+      smartBotOutput.style.display = "none";
+    }
+}
 
 
 
