@@ -67,6 +67,7 @@ function startGame(){
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
            /*  alert(this.players[index]) */
+            this.currentPlayer=this.players[index]
             this.test()
             this.timer()
             await this.pause()
@@ -77,7 +78,7 @@ function startGame(){
                 
                 if (this.players[index]=="Smart") {
                     
-                    this.currentPlayer=this.players[index]
+                    /* this.currentPlayer=this.players[index] */
                     let playerGuess=this.smartBot.guess(this.highestLowNumber, this.lowestHighNumber)
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
                     
@@ -90,7 +91,7 @@ function startGame(){
 
                 }else{
                     
-                    this.currentPlayer=this.players[index]
+                    /* this.currentPlayer=this.players[index] */
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
@@ -101,7 +102,7 @@ function startGame(){
                 
             }else{
                 
-                this.currentPlayer=this.players[index]
+                /* this.currentPlayer=this.players[index] */
                 let playerGuess=this.getGuess("input-number")
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
@@ -174,7 +175,7 @@ function startGame(){
             select("player")
             remove("player2")
             
-        } else if(player != "Smart" || "Dumb") {
+        } else if(player !== "Smart" || "Dumb") {
             console.log("player")
             select("player1")
             remove("player")
