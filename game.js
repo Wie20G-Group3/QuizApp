@@ -66,10 +66,9 @@ function startGame(){
        
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
-            console.log(this.players[index])
-            alert(this.players[index])
-            
+           /*  alert(this.players[index]) */
             this.timer()
+            
             await this.pause()
             
              if (this.playerName!==this.players[index])
@@ -77,27 +76,27 @@ function startGame(){
             {   
                 
                 if (this.players[index]=="Smart") {
-
+                    
                     this.currentPlayer=this.players[index]
                     let playerGuess=this.smartBot.guess(this.highestLowNumber, this.lowestHighNumber)
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
                     
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " smartBot")
-                    switchPlayer()
+                    this.test()
 
                     
                  
 
                 }else{
-
+                    
                     this.currentPlayer=this.players[index]
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " dumbBot")
-                    switchPlayer()
-                   
+                    document.getElementById("player1").style.border="none"
+                    this.test()
                 }
                 
             }else{
@@ -107,7 +106,7 @@ function startGame(){
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
                 this.numberOfGuesse++
-                switchPlayer()
+                this.test()
                 
             }
 
@@ -159,6 +158,34 @@ function startGame(){
         }
     }
 
+
+    test(){
+        let player = this.currentPlayer
+        console.log(player)
+        if (player=="Dumb")
+        {
+            console.log("dum")
+            remove("player1")
+            select("player2")
+        }if (player=="Smart") {
+            console.log("samrt")
+            select("player")
+            remove("player2")
+        } else {
+            console.log("player")
+            select("player1")
+            remove("player")
+        }
+        function select(player) {
+            
+            document.getElementById(player).style.border="5px solid red"
+        }
+        function remove(player) {
+            document.getElementById(player).style.border="none"
+        }
+        
+    
+    }
     //Just a pause, stops all code for 7 seconds
     async pause(){
         await sleep(7000)
@@ -264,6 +291,11 @@ function switchPlayer() {
         document.querySelector(`.player--${activePlayer}`).classList.remove('active-player-animation')
         activePlayer = activePlayer === 0 ? 1:2 
         document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
+        if (activePlayer===2){
+            document.querySelector(`.player--${activePlayer}`).classList.remove('active-player-animation')
+            activePlayer = activePlayer === 0 ? 1:2 
+            document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
+        }
     
 
 
@@ -272,3 +304,5 @@ function switchPlayer() {
 
     
 }
+
+
