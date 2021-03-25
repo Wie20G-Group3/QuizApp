@@ -114,13 +114,12 @@ function startGame(){
 
             let win = this.guessCheck(this.playerGuess, this.correctNumb)
                 if (win==1) {
-                    document.getElementById("playerGuess").innerText=(this.currentPlayer + " har vunnit med "+ this.numberOfGuesse +  " gissningar!")
+                    alert("I win " +this.players[index])
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
                     console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
                     this.stats()
-
                     return
                 }
             await sleep(2000)
