@@ -1,6 +1,10 @@
 window.addEventListener("load", init)
 document.getElementById("hide").addEventListener("click", hideBtn)
 
+
+let activePlayer = 0;
+document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
+
 function init() {
     getName()
     startGame()
@@ -9,7 +13,7 @@ function init() {
 function startGame(){   
     
     /* let guess = document.getElementById("playerInput").value */
-    let name = localStorage.getItem("win")
+    let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
     
@@ -62,36 +66,49 @@ function startGame(){
        
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
+            console.log(this.players[index])
             alert(this.players[index])
+            
             this.timer()
             await this.pause()
             
              if (this.playerName!==this.players[index])
+             
             {   
+                
                 if (this.players[index]=="Smart") {
+
                     this.currentPlayer=this.players[index]
                     let playerGuess=this.smartBot.guess(this.highestLowNumber, this.lowestHighNumber)
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
                     
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " smartBot")
+                    switchPlayer()
+
+                    
                  
 
                 }else{
+
                     this.currentPlayer=this.players[index]
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " dumbBot")
+                    switchPlayer()
                    
                 }
                 
             }else{
+                
                 this.currentPlayer=this.players[index]
                 let playerGuess=this.getGuess("input-number")
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
                 this.numberOfGuesse++
+                switchPlayer()
+                
             }
 
             
@@ -240,3 +257,18 @@ function myInputNumber () {
   
   
   
+
+
+function switchPlayer() {
+    
+        document.querySelector(`.player--${activePlayer}`).classList.remove('active-player-animation')
+        activePlayer = activePlayer === 0 ? 1:2 
+        document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
+    
+
+
+
+    
+
+    
+}
