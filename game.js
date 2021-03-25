@@ -61,7 +61,7 @@ function startGame(){
        
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
-            alert(this.players[index])
+           /*  alert(this.players[index]) */
             this.timer()
             await this.pause()
             
