@@ -68,15 +68,12 @@
                     <div id="smartBotOutput"></div>
                 </div>
             </div>
-            <!-- <div class="input-box">
+             <div class="input-box">
                 <label for="Write numbers"></label>
-                <input type="text" name="write numbers" class="input-animation" id="input-number"
-                    placeholder= "Start Game"> --> <!--"Write a number between 1 to 20" -->
+                
                     
                 <div class="buttons">
-<!-- 
-                <button type="button" name="write numbers" class="input-animation" id="input-number" 
-                onclick="myInputNumber()">Start the Game</button> -->
+
                 </header>
                 <!-- <div class="inputNumber">
                     <h3>Välj en siffra mellan 1-20</h3>
@@ -86,11 +83,16 @@
                     
                     
                 </div> -->
-
-
+                
+                <div>
                 <input autofocus  name="write numbers" class="input-animation" id="input-number"
-                    placeholder="Write a number between 1 to 20" type="number" min="1" max="20" required> 
-                    <span class="validity"></span>
+                placeholder="Number" type="number" min="1" max="20" required> 
+                <span class="validity"></span>
+                </div>
+                <div id="startGame">
+                <button type="button" name="write numbers" class="input-animation" id="startGameBtn" 
+                onclick="startGame()">Start the Game</button> 
+                </div>
                 <div class="buttons">
                   <button id="hide">Hide/Show guesses</button>
                 </div>
