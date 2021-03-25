@@ -7,12 +7,12 @@ document.querySelector(`.player--${activePlayer}`).classList.add('active-player-
 
 function init() {
     getName()
-    startGame()
+    /* startGame() */
 }
 //starts the game and gets values, values not used for now
 function startGame(){   
+    document.getElementById("startGame").innerHTML=""
     
-    /* let guess = document.getElementById("playerInput").value */
     let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
@@ -67,8 +67,8 @@ function startGame(){
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
            /*  alert(this.players[index]) */
+            this.test()
             this.timer()
-            
             await this.pause()
             
              if (this.playerName!==this.players[index])
@@ -83,7 +83,7 @@ function startGame(){
                     
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " smartBot")
-                    this.test()
+                    
 
                     
                  
@@ -96,7 +96,7 @@ function startGame(){
                     this.playerGuess=playerGuess
                     console.log(this.playerGuess+ " dumbBot")
                     document.getElementById("player1").style.border="none"
-                    this.test()
+                    
                 }
                 
             }else{
@@ -106,7 +106,7 @@ function startGame(){
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
                 this.numberOfGuesse++
-                this.test()
+                
                 
             }
 
@@ -161,17 +161,20 @@ function startGame(){
 
     test(){
         let player = this.currentPlayer
+
         console.log(player)
         if (player=="Dumb")
         {
             console.log("dum")
-            remove("player1")
+
             select("player2")
-        }if (player=="Smart") {
+            remove("player1")
+        }else if (player=="Smart") {
             console.log("samrt")
             select("player")
             remove("player2")
-        } else {
+            
+        } else if(player != "Smart" || "Dumb") {
             console.log("player")
             select("player1")
             remove("player")
