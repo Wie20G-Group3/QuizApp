@@ -25,15 +25,7 @@
     padding-bottom: 180px;
     }
 
-    main{
-
-    background-image:url("logo.png");
-    background-size: cover;
-    background-position: center 0%;
-    background-size: 20rem;
-    background-repeat: no-repeat, no-repeat;
-    animation: fade 1s ease;
-    }
+ 
   
   h1 {
     text-align: center;
