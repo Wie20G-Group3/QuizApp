@@ -32,6 +32,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+
+  background-image:url("logo.png");
+  background-size: cover;
+  background-position: center 0%;
+  background-size: 20rem;
+  background-repeat: no-repeat, no-repeat;
+  animation: fade 1s ease;
+  
 
 
 
