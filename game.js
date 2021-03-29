@@ -63,7 +63,7 @@ function startGame(){
 
     //Main loop to run game
     async gameLoop(){
-
+        document.getElementById("playerGuess").innerText=""
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
            /*  alert(this.players[index]) */
@@ -114,7 +114,8 @@ function startGame(){
 
             let win = this.guessCheck(this.playerGuess, this.correctNumb)
                 if (win==1) {
-                    alert("I win " +this.players[index])
+                    document.getElementById("playerGuess").innerText=(this.currentPlayer + " har vinnit med "+ this.numberOfGuesse +  " gissningar!")
+                    this.restart()
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
@@ -159,7 +160,13 @@ function startGame(){
         }
     }
 
-
+    restart(){
+       let button = document.createElement("button")
+       button.innerText="Börja om"
+       button.classList.add("buttonstyle")
+       button.addEventListener("click", ()=>{startGame()})
+       document.getElementById("startGame").appendChild(button)
+    }
     test(){
         let player = this.currentPlayer
 
@@ -206,7 +213,7 @@ function startGame(){
 
             } else {
 
-                document.getElementById("timer").innerText=timeleft
+                document.getElementById("timer").innerText="Tid kvar: "+ timeleft + " sekunder"
 
             }
         timeleft -= 1;
