@@ -73,8 +73,11 @@
 
 
   .form-style {
+    display: flex;
     max-width: 300px;
     margin: 70px auto;
+    
+
     
 }
 
