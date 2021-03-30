@@ -24,6 +24,8 @@
     position: relative;
     padding-bottom: 180px;
     }
+
+ 
   
   h1 {
     text-align: center;
@@ -73,8 +75,11 @@
 
 
   .form-style {
+    display: flex;
     max-width: 300px;
     margin: 70px auto;
+    
+
     
 }
 
