@@ -146,34 +146,16 @@ function startGame(){
     }
     //Saves winner to local storage
     stats() {
-    
-        let games = JSON.parse(localStorage.getItem("win"))
-        let game = {
-            Name:   this.currentPlayer,
-            Wins:   0,
-            Guesses:    this.numberOfGuesse,
-            Date:  new Date()
-        }
-        let a = games.findIndex(x => x.Name === this.currentPlayer);
-        console.log(a)
-        console.log(this.currentPlayer)
-        console.log(games[0])
-        
-        if (!localStorage.getItem('win')) {
-            games = []
-            games.push(game)
-            localStorage.setItem("win", JSON.stringify(games));
-
-        }else if(a >= 0){
-            games[a].Wins++
-            console.log(games)
-            localStorage.setItem("win", JSON.stringify(games));
+        let winners=[]
+        winners = localStorage.getItem("win")
+        if (winners == null) {
+            localStorage.setItem("win", this.winner);
         }else{
-            let gameList = JSON.parse(localStorage.getItem("win"))
-            gameList.push(game)
-            localStorage.setItem("win", JSON.stringify(gameList));
+            winners=[]
+            winners.push(this.winner)
+            JSON.stringify(winners)
+            localStorage.setItem("win", winners);
         }
-        
     }
 
 
