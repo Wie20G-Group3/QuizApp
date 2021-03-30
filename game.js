@@ -124,8 +124,8 @@ function startGame(){
                         number:this.correctNumb
                         
                     }))
-                   
-                    window.location.href="/win.html"
+                    
+                    //window.location.href="/win.html"
                     
                     //export {skicka}
                     /* document.getElementById("playerGuess").innerText=(this.currentPlayer + " har vinnit med "+ this.numberOfGuesse +  " gissningar!")
@@ -133,8 +133,8 @@ function startGame(){
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
-                    console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
                     this.stats()
+                    console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
                     return
                 }
             await sleep(2000)
@@ -160,19 +160,59 @@ function startGame(){
             stats()
         }
     }
+    // //Saves winner to local storage
+    // stats() {
+    //     let winners=[]
+    //     winners = localStorage.getItem("win")
+    //     if (winners == null) {
+    //         localStorage.setItem("win", this.winner);
+    //     }else{
+    //         winners=[]
+    //         winners.push(this.winner)
+    //         JSON.stringify(winners)
+    //         localStorage.setItem("win", winners);
+    //     }
+    // }
+
     //Saves winner to local storage
     stats() {
-        let winners=[]
-        winners = localStorage.getItem("win")
-        if (winners == null) {
-            localStorage.setItem("win", this.winner);
-        }else{
-            winners=[]
-            winners.push(this.winner)
-            JSON.stringify(winners)
-            localStorage.setItem("win", winners);
+    
+        let games = JSON.parse(localStorage.getItem("win"))
+        let game = {
+            Name:   this.currentPlayer,
+            Wins:   0,
+            Guesses:    this.numberOfGuesse,
+            Date:  new Date()
+        }
+        let a = games.findIndex(x => x.Name === this.currentPlayer);
+        console.log(a)
+        console.log(this.currentPlayer)
+        console.log(games[0])
+        
+        if (!localStorage.getItem('win')) {
+            console.log("if")
+            games = []
+            games.push(game)
+            localStorage.setItem("win", JSON.stringify(games));
+
+        }else if(a >= 0){
+            games[a].Wins++
+            console.log(games)
+            localStorage.setItem("win", JSON.stringify(games));
         }
     }
+
+    
+
+
+
+
+
+
+
+
+
+
 
     restart(){
        let button = document.createElement("button")
