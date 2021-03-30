@@ -1,6 +1,7 @@
 window.addEventListener("load", init)
 document.getElementById("hide").addEventListener("click", hideBtn)
 
+
 // let activePlayer = 0;
 // document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
 
@@ -11,7 +12,7 @@ function init() {
 //starts the game and gets values, values not used for now
 function startGame(){
     document.getElementById("startGame").innerHTML=""
-
+   
     let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
@@ -62,12 +63,7 @@ function startGame(){
 
     //Main loop to run game
     async gameLoop(){
-        let skicka = {
-            name:this.currentPlayer,
-            guesses:this.numberOfGuesse
-        }
-       
-        document.getElementById("playerGuess").innerText=""
+
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
            /*  alert(this.players[index]) */
@@ -118,23 +114,14 @@ function startGame(){
 
             let win = this.guessCheck(this.playerGuess, this.correctNumb)
                 if (win==1) {
-                    localStorage.setItem("test", JSON.stringify( {
-                        name:this.currentPlayer,
-                        guesses:this.numberOfGuesse,
-                        number:this.correctNumb
-                        
-                    }))
-                    
-                    //window.location.href="/win.html"
-                    
-                    //export {skicka}
-                    /* document.getElementById("playerGuess").innerText=(this.currentPlayer + " har vinnit med "+ this.numberOfGuesse +  " gissningar!")
-                    this.restart() */
+                    // alert("I win " +this.players[index])
+                    alert("Grattis "+this.players[index]+" du VANN!")
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
+                    // console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
+                    console.log(this.players[index]+" Antal gissningar: " + this.numberOfGuesse + " Antal vinster: ")
                     this.stats()
-                    console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
                     return
                 }
             await sleep(2000)
@@ -160,67 +147,21 @@ function startGame(){
             stats()
         }
     }
-    // //Saves winner to local storage
-    // stats() {
-    //     let winners=[]
-    //     winners = localStorage.getItem("win")
-    //     if (winners == null) {
-    //         localStorage.setItem("win", this.winner);
-    //     }else{
-    //         winners=[]
-    //         winners.push(this.winner)
-    //         JSON.stringify(winners)
-    //         localStorage.setItem("win", winners);
-    //     }
-    // }
-
     //Saves winner to local storage
     stats() {
-    
-        let games = JSON.parse(localStorage.getItem("win"))
-        let game = {
-            Name:   this.currentPlayer,
-            Wins:   0,
-            Guesses:    this.numberOfGuesse,
-            Date:  new Date()
-        }
-        let a = games.findIndex(x => x.Name === this.currentPlayer);
-        console.log(a)
-        console.log(this.currentPlayer)
-        console.log(games[0])
-        
-        if (!localStorage.getItem('win')) {
-            console.log("if")
-            games = []
-            games.push(game)
-            localStorage.setItem("win", JSON.stringify(games));
-
-        }else if(a >= 0){
-            games[a].Wins++
-            console.log(games)
-            localStorage.setItem("win", JSON.stringify(games));
+        let winners=[]
+        winners = localStorage.getItem("win")
+        if (winners == null) {
+            localStorage.setItem("win", this.winner);
+        }else{
+            winners=[]
+            winners.push(this.winner)
+            JSON.stringify(winners)
+            localStorage.setItem("win", winners);
         }
     }
 
-    
 
-
-
-
-
-
-
-
-
-
-
-    restart(){
-       let button = document.createElement("button")
-       button.innerText="Börja om"
-       button.classList.add("buttonstyle")
-       button.addEventListener("click", ()=>{startGame()})
-       document.getElementById("startGame").appendChild(button)
-    }
     test(){
         let player = this.currentPlayer
 
@@ -267,7 +208,7 @@ function startGame(){
 
             } else {
 
-                document.getElementById("timer").innerText="Tid kvar: "+ timeleft + " sekunder"
+                document.getElementById("timer").innerText=timeleft
 
             }
         timeleft -= 1;
@@ -329,7 +270,7 @@ function sleep(ms) {
   }
 
 
-function myInputNumber () {
+/* function myInputNumber () {
     let myNumber;
     //hämtar värdet från input
     myNumber = document.getElementById("inputNumber").value;
@@ -345,7 +286,7 @@ function myInputNumber () {
         document.getElementById("numberOutput").innerHTML = "Du valde nummer: " + myNumber;
     }
 
-}
+} */
 
 
 
