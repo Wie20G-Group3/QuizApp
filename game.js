@@ -12,7 +12,7 @@ function init() {
 //starts the game and gets values, values not used for now
 function startGame(){
     document.getElementById("startGame").innerHTML=""
-
+   
     let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
@@ -114,11 +114,13 @@ function startGame(){
 
             let win = this.guessCheck(this.playerGuess, this.correctNumb)
                 if (win==1) {
-                    alert("I win " +this.players[index])
+                    // alert("I win " +this.players[index])
+                    alert("Grattis "+this.players[index]+" du VANN!")
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
-                    console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
+                    // console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
+                    console.log(this.players[index]+" Antal gissningar: " + this.numberOfGuesse + " Antal vinster: ")
                     this.stats()
                     return
                 }
@@ -268,7 +270,7 @@ function sleep(ms) {
   }
 
 
-function myInputNumber () {
+/* function myInputNumber () {
     let myNumber;
     //hämtar värdet från input
     myNumber = document.getElementById("inputNumber").value;
@@ -284,7 +286,7 @@ function myInputNumber () {
         document.getElementById("numberOutput").innerHTML = "Du valde nummer: " + myNumber;
     }
 
-}
+} */
 
 
 

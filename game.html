@@ -20,7 +20,8 @@
     <div class="timer-answer-div">
       <p class="timer" id="timer"> Timer </p>
       <p class="answer" id="playerGuess">
-        Lower/Higher
+        Högre/Lägre  <!-- / Lower/Higher -->
+        <h6>Starta spelet här nedan - välj och skriv in en siffra mellan 1-20 inom 5 sek - Lycka till!</h6>
       </p>
     </div>
     <div class="game-container">
@@ -63,16 +64,21 @@
           <div id="smartBotOutput"></div>
         </div>
       </div>
+    
 
       <div class="input-box">
-        <input autofocus name="write numbers" class="input-animation" id="input-number" placeholder="Number" type="number" min="1" max="20" required>
+        <input autofocus name="write numbers" class="input-animation" id="input-number" placeholder="Skriv siffran här...
+        /Number" type="number" min="1" max="20" required>
         <span class="validity"></span>
+      </div>
 
-        <div class="buttons">
-          <div id="startGame">
-            <button type="button" name="write numbers" class="play-button" id="startGameBtn" onclick="startGame()"><i class="fas fa-play-circle"></i>PLAY</button>
-          </div>
-          <button class="buttonstyle" id="hide"><i class="fas fa-eye-slash"></i></button>
+      
+      <div class="buttons">
+        <div id="startGame">
+          <button type="button" name="write numbers" class="play-button" id="startGameBtn" onclick="startGame()"><i class="fas fa-play-circle"></i>Starta Spelet</button>  <!--/PLAY-->
+        </div>
+          <div>Öka svårighetsgraden - om du vågar!</div>
+          <button class="buttonstyle" id="hide"><i class="fas fa-eye-slash "></i>Dölj svaren</button>
         </div>
       </div>
     </div>
@@ -84,7 +90,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              I might be dumb but I am smarter than You Are!
+              Jag kanske ses som dum, men jag är egentligen smartare än Du!
+              <!-- I might be dumb but I am smarter than You Are! -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -101,7 +108,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              So smart I can make You cry!
+              Jag är såå smart att du gråter!
+              <!-- So smart I can make You cry! -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

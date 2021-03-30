@@ -300,7 +300,7 @@ margin-bottom: 10px;
 }
 
 input:invalid+span:after{
-content: 'Mellan 1-20!';
+content: 'Hallå! 1-20!';
 padding-left: 5px;
 }
 

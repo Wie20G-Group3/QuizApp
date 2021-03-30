@@ -79,7 +79,8 @@ function pushToList(){
     users = JSON.stringify(users)
     localStorage.setItem("userList", users)
 
-    alert("account created, you can now log in.")
+    //alert("account created, you can now log in.")
+    alert("Ditt konto är nu skapat och du kan logga in.")
 
 }
 

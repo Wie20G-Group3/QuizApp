@@ -27,7 +27,7 @@ function checkPlayer() {
 function login() {
     playerName = document.getElementById("nameField").value;
     if (playerName === "") {
-        alert("Name field cant be empty")
+        alert("Du måste fylla i ett namn") //Name field cant be empty"
     }
     else {
         checkPlayer();
