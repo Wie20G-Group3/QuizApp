@@ -1,6 +1,7 @@
 window.addEventListener("load", init)
 document.getElementById("hide").addEventListener("click", hideBtn)
 
+
 // let activePlayer = 0;
 // document.querySelector(`.player--${activePlayer}`).classList.add('active-player-animation')
 
@@ -12,7 +13,7 @@ function init() {
 //starts the game and gets values, values not used for now
 function startGame(){
     document.getElementById("startGame").innerHTML=""
-
+   
     let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
@@ -242,7 +243,7 @@ function startGame(){
 
             } else {
 
-                document.getElementById("timer").innerText="Tid kvar: "+ timeleft + " sekunder"
+                document.getElementById("timer").innerText=timeleft
 
             }
         timeleft -= 1;
@@ -317,7 +318,7 @@ function sleep(ms) {
   }
 
 
-function myInputNumber () {
+/* function myInputNumber () {
     let myNumber;
     //hämtar värdet från input
     myNumber = document.getElementById("inputNumber").value;
@@ -333,7 +334,7 @@ function myInputNumber () {
         document.getElementById("numberOutput").innerHTML = "Du valde nummer: " + myNumber;
     }
 
-}
+} */
 
 
 
