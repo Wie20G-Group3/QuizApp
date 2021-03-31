@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="main-game-container">
-        <div class="player" id="player1">
+        <div class="player" id="player1" data-bs-toggle="modal" data-bs-target="#playerModal">
           <i class="fas fa-user-alt  player-image-animation player--0"></i>
           <p class="name" id="playerName">Player</p>
         </div>
@@ -92,6 +92,8 @@
             <div class="modal-body">
               Jag kanske ses som dum, men jag är egentligen smartare än Du!
               <!-- I might be dumb but I am smarter than You Are! -->
+              I might be dumb but I am smarter than You Are!
+              <p id="dumbModal"></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -110,6 +112,25 @@
             <div class="modal-body">
               Jag är såå smart att du gråter!
               <!-- So smart I can make You cry! -->
+              So smart I can make You cry!
+              <p id="smartModal"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="playerModal" tabindex="-1" aria-labelledby="playerModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerModalTitle">Stats</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalText">
+              <p id="modalWins"></p>
+              <p id="modalGuesses"></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

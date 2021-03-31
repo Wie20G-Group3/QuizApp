@@ -8,6 +8,7 @@ document.getElementById("hide").addEventListener("click", hideBtn)
 function init() {
     getName()
     /* startGame() */
+    modalInfo()
 }
 //starts the game and gets values, values not used for now
 function startGame(){
@@ -17,7 +18,7 @@ function startGame(){
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
 
-
+    game.modalInfo()
     console.log(game.playerName)
     console.log("Correct number= " +game.correctNumb)
 
@@ -38,6 +39,8 @@ function startGame(){
     smartBot = new SmartBot
     numberOfGuesse=0
     playerGuess=null
+    currentWins
+    totalGuesses
 
     win=0
 
@@ -63,10 +66,11 @@ function startGame(){
 
     //Main loop to run game
     async gameLoop(){
-
+       
+       
+        document.getElementById("playerGuess").innerText=""
         for (let index = 0; index < this.players.length; index++) {
             console.log(this.numberOfGuesse)
-           /*  alert(this.players[index]) */
             this.currentPlayer=this.players[index]
             this.test()
             this.timer()
@@ -78,7 +82,7 @@ function startGame(){
 
                 if (this.players[index]=="Smart") {
 
-                    /* this.currentPlayer=this.players[index] */
+                    
                     let playerGuess=this.smartBot.guess(this.highestLowNumber, this.lowestHighNumber)
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
 
@@ -91,7 +95,7 @@ function startGame(){
 
                 }else{
 
-                    /* this.currentPlayer=this.players[index] */
+                   
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
@@ -102,7 +106,7 @@ function startGame(){
 
             }else{
 
-                /* this.currentPlayer=this.players[index] */
+               
                 let playerGuess=this.getGuess("input-number")
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
@@ -114,14 +118,21 @@ function startGame(){
 
             let win = this.guessCheck(this.playerGuess, this.correctNumb)
                 if (win==1) {
-                    // alert("I win " +this.players[index])
-                    alert("Grattis "+this.players[index]+" du VANN!")
+                    this.stats()
+                    localStorage.setItem("test", JSON.stringify( {
+                        name:this.currentPlayer,
+                        guesses:this.numberOfGuesse,
+                        number:this.correctNumb,
+                        wins:this.currentWins
+                    }))
+                    
+                    window.location.href="/win.html"
+                    
+                   
                     this.winner=this.players[index]
                     let winner = this.winner
                     console.log(this.winner)
-                    // console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
-                    console.log(this.players[index]+" Antal gissningar: " + this.numberOfGuesse + " Antal vinster: ")
-                    this.stats()
+                    console.log(this.players[index]+" Have guessed " + this.numberOfGuesse + " times to win!")
                     return
                 }
             await sleep(2000)
@@ -140,28 +151,52 @@ function startGame(){
         this.gameLoop()
 
     }
-    //Not in use, solved with other functions
-    win(){
-        if (win=1){
-            alert("du har vunnit")
-            stats()
-        }
-    }
-    //Saves winner to local storage
+    
+    
+    
     stats() {
-        let winners=[]
-        winners = localStorage.getItem("win")
-        if (winners == null) {
-            localStorage.setItem("win", this.winner);
+        
+        let game = {
+            Name:   this.currentPlayer,
+            Wins:   0,
+            Guesses:    this.numberOfGuesse,
+            Date:  new Date()
+        }
+       
+        console.log(this.currentPlayer)
+        
+        
+        if (!localStorage.getItem('win')) {
+            console.log("if")
+           let games = []
+            games.push(game)
+            localStorage.setItem("win", JSON.stringify(games));
+            
         }else{
-            winners=[]
-            winners.push(this.winner)
-            JSON.stringify(winners)
-            localStorage.setItem("win", winners);
+            let games = JSON.parse(localStorage.getItem("win"))
+            games.push(game)
+            let a = games.findIndex(x => x.Name === this.currentPlayer);
+            if(a >= 0){
+                games[a].Wins++
+                this.currentWins=games[a].Wins
+                console.log(games)
+                localStorage.setItem("win", JSON.stringify(games));
+            
+        }
+        
         }
     }
 
+   
 
+
+    restart(){
+       let button = document.createElement("button")
+       button.innerText="Börja om"
+       button.classList.add("buttonstyle")
+       button.addEventListener("click", ()=>{startGame()})
+       document.getElementById("startGame").appendChild(button)
+    }
     test(){
         let player = this.currentPlayer
 
@@ -244,8 +279,21 @@ function getName(){
 
     let playerName = document.getElementById("playerName")
     playerName.innerText = playername
+    return playername
 }
 
+function modalInfo() {
+    let games = JSON.parse(localStorage.getItem("win"))
+    
+    let a = games.findIndex(x => x.Name === getName())
+    let botSmart = games.findIndex(x => x.Name === "Smart")
+    let botDumb = games.findIndex(x => x.Name === "Dumb")
+    document.getElementById("modalWins").innerHTML="Antal vinster: "+ games[a].Wins
+    document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins
+    document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins
+    
+    
+}
 
 
 function hideBtn(){
