@@ -176,7 +176,7 @@ function startGame(){
             let games = JSON.parse(localStorage.getItem("win"))
             games.push(game)
             let a = games.findIndex(x => x.Name === this.currentPlayer);
-            if(a >= 0){
+            if(a != -1){
                 games[a].Wins++
                 this.currentWins=games[a].Wins
                 console.log(games)
