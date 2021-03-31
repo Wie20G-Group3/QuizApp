@@ -158,7 +158,7 @@ function startGame(){
         
         let game = {
             Name:   this.currentPlayer,
-            Wins:   0,
+            Wins:   1,
             Guesses:    this.numberOfGuesse,
             Date:  new Date()
         }
@@ -168,13 +168,14 @@ function startGame(){
         
         if (!localStorage.getItem('win')) {
             console.log("if")
-           let games = []
+            this.currentWins=1
+            let games = []
             games.push(game)
             localStorage.setItem("win", JSON.stringify(games));
             
         }else{
             let games = JSON.parse(localStorage.getItem("win"))
-            games.push(game)
+            
             let a = games.findIndex(x => x.Name === this.currentPlayer);
             if(a != -1){
                 games[a].Wins++
@@ -182,7 +183,9 @@ function startGame(){
                 console.log(games)
                 localStorage.setItem("win", JSON.stringify(games));
             
-        }
+            }else{
+                games.push(game)
+            }
         
         }
     }
@@ -285,30 +288,35 @@ function getName(){
 function modalInfo() {
     console.log("in modal")
     let games = JSON.parse(localStorage.getItem("win"))
+    if (games!=null){
+
     
-    let a = games.findIndex(x => x.Name === getName())
-    let botSmart = games.findIndex(x => x.Name === "Smart")
-    let botDumb = games.findIndex(x => x.Name === "Dumb")
-    if (!games[a]) {
-        document.getElementById("modalWins").innerHTML="Antal vinster: 0"
+   
+        let a = games.findIndex(x => x.Name === getName())
+        let botSmart = games.findIndex(x => x.Name === "Smart")
+        let botDumb = games.findIndex(x => x.Name === "Dumb")
+        if (!games[a]) {
+            document.getElementById("modalWins").innerHTML="Antal vinster: 0"
+        }else{
+        document.getElementById("modalWins").innerHTML="Antal vinster: "+ games[a].Wins}
+        
+        if (!games[botSmart]) {
+            document.getElementById("smartModal").innerHTML="Antal vinster: 0"
+        }else{document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins}
+        
+        if (!games[botDumb]) {
+            document.getElementById("dumbModal").innerHTML="Antal vinster: 0"
+        }else{document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins}
+        
+    /*  document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins
+        document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins */
     }else{
-    document.getElementById("modalWins").innerHTML="Antal vinster: "+ games[a].Wins}
-    
-    if (!games[botSmart]) {
+        document.getElementById("modalWins").innerHTML="Antal vinster: 0"
         document.getElementById("smartModal").innerHTML="Antal vinster: 0"
-    }else{document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins}
-    
-    if (!games[botDumb]) {
         document.getElementById("dumbModal").innerHTML="Antal vinster: 0"
-    }else{document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins}
-    
-   /*  document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins
-    document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins */
-    
-    
+    }
+
 }
-
-
 function hideBtn(){
 
     let dumbBotOutput= document.getElementById("dumbBotOutput")
