@@ -13,12 +13,12 @@ function init() {
 //starts the game and gets values, values not used for now
 function startGame(){
     document.getElementById("startGame").innerHTML=""
-   
+    document.getElementById("instructions").innerHTML=""
     let name = localStorage.getItem("playername")
     let game = new GameState(name)
     document.getElementById("playerName").innerText=game.playerName
 
-    game.modalInfo()
+    game.modalInfo
     console.log(game.playerName)
     console.log("Correct number= " +game.correctNumb)
 
@@ -283,14 +283,27 @@ function getName(){
 }
 
 function modalInfo() {
+    console.log("in modal")
     let games = JSON.parse(localStorage.getItem("win"))
     
     let a = games.findIndex(x => x.Name === getName())
     let botSmart = games.findIndex(x => x.Name === "Smart")
     let botDumb = games.findIndex(x => x.Name === "Dumb")
-    document.getElementById("modalWins").innerHTML="Antal vinster: "+ games[a].Wins
-    document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins
-    document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins
+    if (!games[a]) {
+        document.getElementById("modalWins").innerHTML="Antal vinster: 0"
+    }else{
+    document.getElementById("modalWins").innerHTML="Antal vinster: "+ games[a].Wins}
+    
+    if (!games[botSmart]) {
+        document.getElementById("smartModal").innerHTML="Antal vinster: 0"
+    }else{document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins}
+    
+    if (!games[botDumb]) {
+        document.getElementById("dumbModal").innerHTML="Antal vinster: 0"
+    }else{document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins}
+    
+   /*  document.getElementById("smartModal").innerHTML="Antal vinster: "+ games[botSmart].Wins
+    document.getElementById("dumbModal").innerHTML="Antal vinster: "+ games[botDumb].Wins */
     
     
 }
