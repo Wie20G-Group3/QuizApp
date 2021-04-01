@@ -17,9 +17,18 @@ class SmartBot extends Bot{
     }
     //Makes smart guess
     guess(highestLowNumber, lowestHighNumber){
-    
-        return highestLowNumber + (Math.floor(Math.random() * (lowestHighNumber - highestLowNumber)) + 0)
-
+        let guess = highestLowNumber + (Math.floor(Math.random() * (lowestHighNumber - highestLowNumber)) + 1)
+        console.log(guess)
+        if(guess===highestLowNumber){
+            
+            return guess+1
+        }else if(guess===lowestHighNumber){
+            
+            return guess-1
+        }else{
+        
+        return guess
+        }
     }
 
 
