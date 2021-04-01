@@ -87,7 +87,7 @@ function startGame(){
                     document.getElementById("smartBotOutput").innerHTML=playerGuess
 
                     this.playerGuess=playerGuess
-                    console.log(this.playerGuess+ " smartBot")
+                    console.log(this.currentPlayer)
 
 
 
@@ -99,7 +99,7 @@ function startGame(){
                     let playerGuess = this.dumbBot.guess()
                     document.getElementById("dumbBotOutput").innerText=playerGuess
                     this.playerGuess=playerGuess
-                    console.log(this.playerGuess+ " dumbBot")
+                    console.log(this.currentPlayer)
                     document.getElementById("player1").style.border="none"
 
                 }
@@ -111,6 +111,7 @@ function startGame(){
                 document.getElementById("player-bubble").innerText=playerGuess
                 this.playerGuess=playerGuess
                 this.numberOfGuesse++
+                console.log(this.currentPlayer)
 
 
             }
@@ -123,7 +124,7 @@ function startGame(){
                         name:this.currentPlayer,
                         guesses:this.numberOfGuesse,
                         number:this.correctNumb,
-                        wins:this.currentWins
+                        wins: this.currentWins
                     }))
                     
                     window.location.href="/win.html"
@@ -155,7 +156,7 @@ function startGame(){
     
     
     stats() {
-        
+        console.log(this.currentPlayer)
         let game = {
             Name:   this.currentPlayer,
             Wins:   1,
@@ -175,8 +176,9 @@ function startGame(){
             
         }else{
             let games = JSON.parse(localStorage.getItem("win"))
-            
+            this.currentWins=1
             let a = games.findIndex(x => x.Name === this.currentPlayer);
+            console.log(a)
             if(a != -1){
                 games[a].Wins++
                 this.currentWins=games[a].Wins
@@ -184,7 +186,9 @@ function startGame(){
                 localStorage.setItem("win", JSON.stringify(games));
             
             }else{
+                
                 games.push(game)
+                localStorage.setItem("win", JSON.stringify(games));
             }
         
         }
