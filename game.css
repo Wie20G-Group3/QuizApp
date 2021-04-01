@@ -58,7 +58,7 @@ main {
 .timer {
 font-size: 1.3rem;
 animation: fade 1s ease;
-/* margin: 1rem; */
+margin: 0; 
 
 }
 
@@ -149,8 +149,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
-
-
 
 }
 
@@ -278,9 +276,9 @@ margin: 70px auto;
 }
 
 .answer {
-  font-size: 1rem;
+  font-size: 1.8rem;
   height: 1rem;
-  margin: 1rem;
+  margin: 1.4rem;
 
   
 }

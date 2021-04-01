@@ -53,6 +53,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 1rem;
   }
 
 
@@ -73,19 +74,24 @@
     color: hsl(286, 90%, 50%);
     text-shadow: 1px 1px black;
     font-weight: 600;
+  }
 
+  .highscore {
+    margin-top: 2rem;
   }
   
   #player {
     padding-bottom: 3rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   #results-text{
     width: 100%;
     float: left;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
   }
 
   .buttonstyle {
@@ -153,6 +159,8 @@
         margin-bottom: 0.7rem;
       }
 
+      
+
       @keyframes fade {
         0% {
           opacity: 0;
@@ -197,4 +205,8 @@
           -webkit-transform: rotateY(360deg);
           transform: rotateY(360deg);
         }
+      }
+      @media only screen and (min-width: 768px) {
+        #player {font-size: 3rem;}
+        .highscore {font-size: 1.6rem;}
       }
