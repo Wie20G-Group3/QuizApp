@@ -1,16 +1,17 @@
 * {
-<<<<<<< HEAD
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-weight: 400;
+    font-family: 'Arimo';
   }
+
   
-  html {
-    height: 100%;
+html {
+  height: 100%;
 }
   
-  body {
+body {
     background-image: url(bg2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -24,12 +25,13 @@
     min-height: 100%;
     position: relative;
     padding-bottom: 180px;
-    }
+    margin: 0px;
+}
   
-  h1 {
+h1 {
     text-align: center;
     font-size: 3rem;
-  }
+}
   
   h2 {
     text-align: center;
@@ -121,76 +123,4 @@
     padding: 12px;
     font-weight: 600;
     margin-top: 20px;
-=======
-    box-sizing: border-box;
-    margin: 0px;
-    font-family: 'Arimo';
-}
-
-body {
-    margin: 0px;
-}
-
-main {
-    justify-content: center;
-
-}
-
-header {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    top: 0;
-    left: 0; 
-    right: 0;
-    height: 85px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: #212121;
-    color: #FFFFFF;
-}
-
-.header {
-    flex: 1 0 0px;
-}
-
-#techStoreLogo {
-    font-size: 20px;
-    text-decoration: none;
-    color: #FFFFFF;
-} 
-
-.authentificationBox {
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-
-
-.mainBox {
-    display: flex;
-    padding-top: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
-    justify-content: right;
-    flex-direction: column;
-    
-    
-}
-.loginBox {
-    display: flex;
-    text-align: center;
-    flex-direction: column;   
-    margin-left: 65%;
-}
-
-
-.createAccount {
-display: flex;
-text-align: center;
-flex-direction: column;   
-margin-left: 65%;
-
->>>>>>> 6ad01c36be016ab4c17ed88785379bc5c10c48ba
 }
